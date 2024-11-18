@@ -17,10 +17,6 @@ Rest of the Group Completes These Once Pull is Completed
 Git checkout main
 Git pull origin main
 Git checkout branch-name
-<<<<<<< HEAD
 Git merge main
 
 testing Jake
-=======
-Git merge main
->>>>>>> 58bac34be23d1f4b82f3247debaa41c46c498e77
