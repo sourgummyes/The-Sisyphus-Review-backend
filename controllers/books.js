@@ -1,4 +1,4 @@
-const Book = require ('../models/book.js');
+const Book = require('../models/book.js');
 const express = require('express');
 const router = express.Router();
 
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
         res.status(404);
         throw new Error('Review not found.');
       }
-      res.status(200).json(`${deletedbook.bookName} has been deleted.`);
+      res.status(200).json(`${deletedBook.bookName} has been deleted.`);
     } catch (error) {
       if (res.statusCode === 404) {
         res.json({ error: error.message });
