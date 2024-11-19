@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Review = require('../models/review.js')
+// const Review = require('../models/review.js')
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
@@ -9,7 +9,7 @@ const bookSchema = new Schema({
     PublisherName: {type: String, required: true},
     ibanString: {type: String, required: true},
     genre: {type: String, required: true},
-    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+    // reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }], // STRETCH GOAL
 },
 { timestamps: true }    
 )
