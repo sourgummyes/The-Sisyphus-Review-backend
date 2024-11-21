@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
   });
 
 // READ - GET - /books/:bookId/reviews
-router.get("/reviews/:bookId", async (req, res) => {
+router.get("/:bookId", async (req, res) => {
   try {
     const { bookId } = req.params;
     const foundReviews = await Review.find({ book: bookId }).populate(
