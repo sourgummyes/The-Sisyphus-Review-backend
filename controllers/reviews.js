@@ -40,6 +40,25 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+// READ - GET - /books/:bookId/reviews
+router.get("/reviews/:bookId", async (req, res) => {
+  try {
+    const { bookId } = req.params;
+    const foundReviews = await Review.find({ book: bookId }).populate(
+      "user_Id",
+      "username"
+    ); // Populate user details
+    if (!foundReviews.length) {
+      res.status(404).json({ error: "No reviews found for this book." });
+      return;
+    }
+    res.status(200).json(foundReviews);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 // UPDATE - PUT - /reviews/:id
 router.put('/:id', async (req, res) => {
     try {
