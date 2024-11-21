@@ -41,12 +41,15 @@ router.get('/:id', async (req, res) => {
   });
 
 // READ - GET - /books/:bookId/reviews
-router.get('/books/:bookId/reviews', async (req, res) => {
+router.get("/reviews/:bookId", async (req, res) => {
   try {
     const { bookId } = req.params;
-    const foundReviews = await Review.find({ book: bookId }).populate('user_Id', 'username'); // Populate user details
+    const foundReviews = await Review.find({ book: bookId }).populate(
+      "user_Id",
+      "username"
+    ); // Populate user details
     if (!foundReviews.length) {
-      res.status(404).json({ error: 'No reviews found for this book.' });
+      res.status(404).json({ error: "No reviews found for this book." });
       return;
     }
     res.status(200).json(foundReviews);
