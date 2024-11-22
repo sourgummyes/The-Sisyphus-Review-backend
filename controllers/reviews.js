@@ -23,22 +23,22 @@ router.get('/', async (req, res) => {
   });
 
 // READ - GET - /reviews/:id
-router.get('/:id', async (req, res) => {
-    try {
-      const foundReview = await Review.findById(req.params.id);
-      if (!foundReview) {
-        res.status(404);
-        throw new Error('Review not found.');
-      }
-      res.status(200).json(foundReview);
-    } catch (error) {
-      if (res.statusCode === 404) {
-        res.json({ error: error.message });
-      } else {
-        res.status(500).json({ error: error.message });
-      }
-    }
-  });
+// router.get('/:id', async (req, res) => {
+//     try {
+//       const foundReview = await Review.findById(req.params.id);
+//       if (!foundReview) {
+//         res.status(404);
+//         throw new Error('Review not found.');
+//       }
+//       res.status(200).json(foundReview);
+//     } catch (error) {
+//       if (res.statusCode === 404) {
+//         res.json({ error: error.message });
+//       } else {
+//         res.status(500).json({ error: error.message });
+//       }
+//     }
+//   });
 
 // READ - GET - /books/:bookId/reviews
 router.get("/:bookId", async (req, res) => {
